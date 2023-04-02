@@ -1,5 +1,5 @@
 ---
-- hosts: postgres_servers
+- hosts: localhost
   collections:
     - community.postgresql
     - community.general
@@ -7,7 +7,8 @@
   roles:
     - postgres
 
-- hosts: artifactory_servers
+- hosts: localhost
+
   collections:
     - community.general
     - jfrog.platform
@@ -18,7 +19,7 @@
     - role: artifactory
       when: artifactory_enabled | bool
 
-- hosts: xray_servers
+- hosts: localhost
   collections:
     - community.general
     - jfrog.platform
