@@ -1,0 +1,5 @@
+---
+- name: Deploy JFrog Artifactory and Xray
+  hosts: localhost
+  roles:
+    - jfrog-rt-xray
