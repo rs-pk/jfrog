@@ -1,0 +1,27 @@
+---
+- hosts: postgres_servers
+  collections:
+    - community.postgresql
+    - community.general
+    - jfrog.platform
+  roles:
+    - postgres
+
+- hosts: artifactory_servers
+  collections:
+    - community.general
+    - jfrog.platform
+  serial:
+    - 1
+    - 100%
+  roles:
+    - role: artifactory
+      when: artifactory_enabled | bool
+
+- hosts: xray_servers
+  collections:
+    - community.general
+    - jfrog.platform
+  roles:
+    - role: xray
+      when: xray_enabled | bool
