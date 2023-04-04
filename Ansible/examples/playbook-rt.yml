@@ -1,0 +1,20 @@
+---
+- hosts: postgres_servers
+  collections:
+    - community.postgresql
+    - community.general
+    - jfrog.platform
+  roles:
+    - role: postgres
+      when: postgres_enabled | bool
+
+- hosts: artifactory_servers
+  collections:
+    - community.general
+    - jfrog.platform
+  serial:
+    - 1
+    - 100%
+  roles:
+    - role: artifactory
+      when: artifactory_enabled | bool
