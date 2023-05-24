@@ -1,5 +1,5 @@
 - name: Play for postgres_servers
-  hosts: localhost
+  hosts: postgres_servers
   collections:
     - community.postgresql
     - community.general
@@ -8,7 +8,7 @@
       when: postgres_enabled | bool
 
 - name: Play for artifactory_servers
-  hosts: localhost
+  hosts: artifactory_servers
   collections:
     - community.general
   serial:
@@ -19,7 +19,7 @@
       when: artifactory_enabled | bool
 
 - name: Play for xray_servers
-  hosts: localhost
+  hosts: xray_servers
   collections:
     - community.general
   roles:
