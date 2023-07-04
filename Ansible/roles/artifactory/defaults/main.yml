@@ -19,7 +19,7 @@ artifactory_nginx_enabled: true
 #   <license_3>
 
 # To enable HA, set to true
-artifactory_ha_enabled: false
+artifactory_ha_enabled: true
 
 # By default, all nodes are primary (CNHA) - https://www.jfrog.com/confluence/display/JFROG/High+Availability#HighAvailability-Cloud-NativeHighAvailability
 artifactory_taskaffinity: any
